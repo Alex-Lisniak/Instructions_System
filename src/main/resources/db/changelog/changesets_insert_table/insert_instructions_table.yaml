@@ -22,6 +22,21 @@ databaseChangeLog:
                   name: instruction_head_patronymic
                   value: Grigorovich
               - column:
+                  name: instruction_head_control_surname
+                  value: VasilkoControl
+              - column:
+                  name: instruction_head_control_name
+                  value: OleksiiControl
+              - column:
+                  name: instruction_head_control_patronymic
+                  value: GrigorovichControl
+              - column:
+                  name: instruction_status
+                  value: in progress
+              - column:
+                  name: instruction_source_of_instruction
+                  value: cafedra
+              - column:
                   name: instruction_short_description
                   value: More consultations ater lessons
               - column:
@@ -55,6 +70,21 @@ databaseChangeLog:
               - column:
                   name: instruction_head_patronymic
                   value: Oleksandrovich
+              - column:
+                  name: instruction_head_control_surname
+                  value: MalishkoControl
+              - column:
+                  name: instruction_head_control_name
+                  value: VasiliyControl
+              - column:
+                  name: instruction_head_control_patronymic
+                  value: OleksandrovichControl
+              - column:
+                  name: instruction_status
+                  value: approved
+              - column:
+                  name: instruction_source_of_instruction
+                  value: directive
               - column:
                   name: instruction_short_description
                   value: More consultations ater lessons

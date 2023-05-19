@@ -24,9 +24,7 @@ public class Instructions {
 
     @Column(name = "instruction_title")
     private String title;
-// todo who send instruction "засідання кафедри"
-// todo who send instruction "головний по контролю виконання"
-    // status enum(прострочено, виконано, в роботі)
+
     @Column(name = "instruction_head_surname")
     private String headSurname;
 
@@ -35,6 +33,21 @@ public class Instructions {
 
     @Column(name = "instruction_head_patronymic")
     private String headPatronymic;
+
+    @Column(name = "instruction_head_control_surname")
+    private String headControlSurname;
+
+    @Column(name = "instruction_head_control_name")
+    private String headControlName;
+
+    @Column(name = "instruction_head_control_patronymic")
+    private String headControlPatronymic;
+
+    @Column(name = "instruction_status")
+    private String status;
+
+    @Column(name = "instruction_source_of_instruction")
+    private String sourceOfInstruction;
 
     @Column(name = "instruction_short_description")
     private String shortDescription;

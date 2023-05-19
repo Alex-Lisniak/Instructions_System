@@ -107,6 +107,7 @@ public class InstructionsServiceImpl implements InstructionsService {
     @Transactional
     public InstructionsDto updateInstructionByTitle(final UUID key, final String instructionTitle, final String newTitle,
                                                     final String newHeadSurname, final String newHeadName, final String newHeadPatronymic,
+                                                    final String newHeadControlSurname, final String newHeadControlName, final String newHeadControlPatronymic, final String newStatus, final String newSourceOfInstruction,
                                                     final String newShortDescription, final String newFullDescription, final String newText,
                                                     final String newStartTime, final String newExpTime) {
         validateKey(key);
@@ -117,10 +118,15 @@ public class InstructionsServiceImpl implements InstructionsService {
         instructions.setHeadSurname(newHeadSurname);
         instructions.setHeadName(newHeadName);
         instructions.setHeadPatronymic(newHeadPatronymic);
+        instructions.setHeadControlSurname(newHeadControlSurname);
+        instructions.setHeadControlName(newHeadControlName);
+        instructions.setHeadControlPatronymic(newHeadControlPatronymic);
+        instructions.setStatus(newStatus);
+        instructions.setSourceOfInstruction(newSourceOfInstruction);
         instructions.setShortDescription(newShortDescription);
         instructions.setFullDescription(newFullDescription);
-        instructions.setStartTime(stringToDateLongParser.parseStringToGetLongTime(newStartTime));
-        instructions.setExpTime(stringToDateLongParser.parseStringToGetLongTime(newExpTime));
+        instructions.setStartTime(stringToDateLongParser.parseStringToGetLongTime(newStartTime)/1000);
+        instructions.setExpTime(stringToDateLongParser.parseStringToGetLongTime(newExpTime)/1000);
         instructions.setText(newText);
         instructionsRepository.save(instructions);
 
@@ -131,13 +137,14 @@ public class InstructionsServiceImpl implements InstructionsService {
     @Transactional
     public InstructionsDto createInstruction(final UUID key, final String newTitle,
                                              final String newHeadSurname, final String newHeadName, final String newHeadPatronymic,
+                                             final String newHeadControlSurname, final String newHeadControlName, final String newHeadControlPatronymic, final String newStatus, final String newSourceOfInstruction,
                                              final String newShortDescription, final String newFullDescription,  final String newText,
                                              final String newStartTime, final String newExpTime) {
         validateKey(key);
 
         Instructions instructions = new Instructions(key, newTitle, newHeadSurname, newHeadName,
-                newHeadPatronymic, newShortDescription, newFullDescription, newText,
-                stringToDateLongParser.parseStringToGetLongTime(newStartTime), stringToDateLongParser.parseStringToGetLongTime(newExpTime));
+                newHeadPatronymic, newHeadControlSurname, newHeadControlName, newHeadControlPatronymic, newStatus, newSourceOfInstruction, newShortDescription, newFullDescription, newText,
+                stringToDateLongParser.parseStringToGetLongTime(newStartTime)/1000, stringToDateLongParser.parseStringToGetLongTime(newExpTime)/1000);
         instructionsRepository.save(instructions);
 
         return instructionMapper.instructionToDto(instructions);

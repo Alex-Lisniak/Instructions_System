@@ -53,21 +53,25 @@ public class InstructionsController {
 
 
     @Operation(summary = "create instruction passing all fields.")
-    @PostMapping("/new/{newTitle}/{newHeadSurname}/{newHeadName}/{newHeadPatronymic}/{newShortDescription}/{newFullDescription}/{newText}/{newStartTime}/{newExpTime}")
+    @PostMapping("/new/{newTitle}/{newHeadSurname}/{newHeadName}/{newHeadPatronymic}/{headControlSurname}/{headControlName}/{headControlPatronymic}/{status}/{sourceOfInstruction}/{newShortDescription}/{newFullDescription}/{newText}/{newStartTime}/{newExpTime}")
     public InstructionsDto createInstruction(@RequestHeader(value = "key") UUID key, @PathVariable final String newTitle,
                                              @PathVariable final String newHeadSurname, @PathVariable final String newHeadName, @PathVariable final String newHeadPatronymic,
+                                             @PathVariable final String headControlSurname, @PathVariable final String headControlName, @PathVariable final String headControlPatronymic,
+                                             @PathVariable final String status, @PathVariable final String sourceOfInstruction,
                                              @PathVariable final String newShortDescription, @PathVariable final String newFullDescription, @PathVariable final String newText,
                                              @PathVariable final String newStartTime, @PathVariable final String newExpTime){
-        return instructionsService.createInstruction(key, newTitle, newHeadSurname, newHeadName, newHeadPatronymic, newShortDescription, newFullDescription, newText, newStartTime, newExpTime);
+        return instructionsService.createInstruction(key, newTitle, newHeadSurname, newHeadName, newHeadPatronymic, headControlSurname, headControlName, headControlPatronymic, status, sourceOfInstruction, newShortDescription, newFullDescription, newText, newStartTime, newExpTime);
     }
 
     @Operation(summary = "update instruction passing all fields.")
-    @PostMapping("/update/{instructionTitle}/{newTitle}/{newHeadSurname}/{newHeadName}/{newHeadPatronymic}/{newShortDescription}/{newFullDescription}/{newText}/{newStartTime}/{newExpTime}")
+    @PostMapping("/update/{instructionTitle}/{newTitle}/{newHeadSurname}/{newHeadName}/{newHeadPatronymic}/{headControlSurname}/{headControlName}/{headControlPatronymic}/{status}/{sourceOfInstruction}/{newShortDescription}/{newFullDescription}/{newText}/{newStartTime}/{newExpTime}")
     public InstructionsDto updateInstructionByTitle(@RequestHeader(value = "key") UUID key, @PathVariable final String instructionTitle, @PathVariable final String newTitle,
                                                     @PathVariable final String newHeadSurname, @PathVariable final String newHeadName, @PathVariable final String newHeadPatronymic,
+                                                    @PathVariable final String headControlSurname, @PathVariable final String headControlName, @PathVariable final String headControlPatronymic,
+                                                    @PathVariable final String status, @PathVariable final String sourceOfInstruction,
                                                     @PathVariable final String newShortDescription, @PathVariable final String newFullDescription, @PathVariable final String newText,
                                                     @PathVariable final String newStartTime, @PathVariable final String newExpTime){
-        return instructionsService.updateInstructionByTitle(key, instructionTitle, newTitle, newHeadSurname, newHeadName, newHeadPatronymic, newShortDescription, newFullDescription, newText, newStartTime, newExpTime);
+        return instructionsService.updateInstructionByTitle(key, instructionTitle, newTitle, newHeadSurname, newHeadName, newHeadPatronymic, headControlSurname, headControlName, headControlPatronymic, status, sourceOfInstruction, newShortDescription, newFullDescription, newText, newStartTime, newExpTime);
     }
 
     @Operation(summary = "delete instruction by title")

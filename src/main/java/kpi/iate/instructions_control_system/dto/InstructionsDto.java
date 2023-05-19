@@ -20,6 +20,16 @@ public class InstructionsDto {
 
     private String headPatronymic;
 
+    private String headControlSurname;
+
+    private String headControlName;
+
+    private String headControlPatronymic;
+
+    private String status;
+
+    private String sourceOfInstruction;
+
     private String shortDescription;
 
     private String fullDescription;
