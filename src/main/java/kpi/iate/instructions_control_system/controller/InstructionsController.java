@@ -23,7 +23,7 @@ public class InstructionsController {
 
     @Operation(summary = "get instruction using it`s title")
     @GetMapping("/get/{instructionTitle}")
-    public InstructionsDto getInstructionByTytle(@RequestHeader(value = "key") UUID key, @PathVariable String instructionTitle){
+    public InstructionsDto getInstructionByTitle(@RequestHeader(value = "key") UUID key, @PathVariable String instructionTitle){
         return instructionsService.getInstructionByTitle(key,instructionTitle);
     }
     @Operation(summary = "get all instructions")
